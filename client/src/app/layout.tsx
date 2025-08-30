@@ -10,6 +10,17 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 export const metadata: Metadata = {
   title: 'ArbuqConcept — Luxury Handmade Candles',
   description: 'A luxury, modern, and elegant e-commerce for handmade candles.',
+  keywords: ['candles', 'handmade', 'luxury', 'scented', 'unscented', 'premium'],
+  openGraph: {
+    title: 'ArbuqConcept — Luxury Handmade Candles',
+    description: 'Premium handmade candles for modern interiors.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ArbuqConcept — Luxury Handmade Candles',
+    description: 'Premium handmade candles for modern interiors.',
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
