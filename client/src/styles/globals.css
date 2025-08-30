@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+}
+
+html, body, :root {
+  height: 100%;
+}
+
+body {
+  @apply bg-bone text-ink antialiased selection:bg-gold/20 selection:text-ink;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0)), theme('backgroundImage.grain');
+  background-repeat: repeat;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.card {
+  @apply rounded-xl bg-white/80 backdrop-blur border border-sand shadow-luxe;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition-colors duration-200;
+}
+.btn-primary {
+  @apply bg-ink text-bone hover:bg-ink/90;
+}
+.btn-outline {
+  @apply border border-ink text-ink hover:bg-ink hover:text-bone;
+}
+
