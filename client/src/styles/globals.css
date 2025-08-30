@@ -12,7 +12,7 @@ html, body, :root {
 
 body {
   @apply bg-bone text-ink antialiased selection:bg-gold/20 selection:text-ink;
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0)), theme('backgroundImage.grain');
+  background-image: radial-gradient(1200px 800px at 50% -10%, rgba(176,141,87,0.08), rgba(0,0,0,0)), theme('backgroundImage.grain');
   background-repeat: repeat;
 }
 
@@ -21,16 +21,16 @@ body {
 }
 
 .card {
-  @apply rounded-xl bg-white/80 backdrop-blur border border-sand shadow-luxe;
+  @apply rounded-xl bg-white/85 backdrop-blur border border-sand shadow-luxe transition-shadow duration-300 hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.45)];
 }
 
 .btn {
-  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition-colors duration-200;
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition-all duration-200;
 }
 .btn-primary {
-  @apply bg-ink text-bone hover:bg-ink/90;
+  @apply bg-ink text-bone hover:bg-ink/90 active:scale-[0.98];
 }
 .btn-outline {
-  @apply border border-ink text-ink hover:bg-ink hover:text-bone;
+  @apply border border-ink text-ink hover:bg-ink hover:text-bone active:scale-[0.98];
 }
 

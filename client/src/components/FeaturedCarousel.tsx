@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useSwipeable } from 'react-swipeable'
 
 export function FeaturedCarousel({ products }: { products: any[] }) {
   const [index, setIndex] = useState(0)
@@ -17,8 +18,10 @@ export function FeaturedCarousel({ products }: { products: any[] }) {
   const prev = () => setIndex((i) => (i - 1 + products.length) % products.length)
   const next = () => setIndex((i) => (i + 1) % products.length)
 
+  const swipeHandlers = useSwipeable({ onSwipedLeft: next, onSwipedRight: prev, trackMouse: true })
+
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-luxe">
+    <div className="relative rounded-2xl overflow-hidden shadow-luxe" {...swipeHandlers}>
       {products.map((p, i) => (
         <Link key={p.id} href={`/products/${p.slug}`} className={`absolute inset-0 transition-opacity duration-700 ${i === index ? 'opacity-100' : 'opacity-0'}`}>
           <Image src={p.images[0]} alt={p.name} fill className="object-cover" priority={i===0} />

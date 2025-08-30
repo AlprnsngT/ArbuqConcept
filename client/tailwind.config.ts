@@ -27,7 +27,7 @@ const config: Config = {
         gold: '#b08d57',
       },
       fontFamily: {
-        display: ['var(--font-calsans)', 'ui-sans-serif', 'system-ui'],
+        display: ['var(--font-display)', 'ui-serif', 'Georgia', 'serif'],
         sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
       },
       boxShadow: {
