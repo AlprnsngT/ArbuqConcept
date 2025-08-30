@@ -3,10 +3,12 @@ import Link from 'next/link'
 import { ShoppingBag, User, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useCart } from './CartContext'
+import { useAuth } from './AuthContext'
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
   const { items } = useCart()
+  const { user, signOut } = useAuth()
   const count = items.reduce((s, i) => s + i.quantity, 0)
 
   return (
@@ -17,8 +19,14 @@ export function Navbar() {
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <Link href="/products" className="hover:underline">Products</Link>
-          <Link href="/sign-in" className="hover:underline">Sign In</Link>
-          <Link href="/sign-up" className="hover:underline">Sign Up</Link>
+          {user ? (
+            <button className="hover:underline" onClick={signOut}>Sign Out</button>
+          ) : (
+            <>
+              <Link href="/sign-in" className="hover:underline">Sign In</Link>
+              <Link href="/sign-up" className="hover:underline">Sign Up</Link>
+            </>
+          )}
         </nav>
         <div className="flex items-center gap-3">
           <Link href="/cart" className="relative inline-flex">
@@ -27,7 +35,7 @@ export function Navbar() {
               <span className="absolute -top-2 -right-2 text-xs bg-ink text-bone rounded-full px-1.5 py-0.5">{count}</span>
             )}
           </Link>
-          <Link href="/sign-in"><User /></Link>
+          <Link aria-label="Account" href={user ? '/products' : '/sign-in'}><User /></Link>
           <button aria-label="Toggle theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
             {theme === 'dark' ? <Sun /> : <Moon />}
           </button>
