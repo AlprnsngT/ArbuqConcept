@@ -35,6 +35,7 @@ export default function CartPage() {
                 <button className="btn btn-outline" onClick={() => removeFromCart(product.id)}>Remove</button>
               </div>
             ))}
+            <Link href="/products" className="btn btn-outline w-max">Continue Shopping</Link>
           </div>
           <div className="card p-6 h-max">
             <div className="flex items-center justify-between text-lg">

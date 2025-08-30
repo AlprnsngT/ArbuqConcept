@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSwipeable } from 'react-swipeable'
 
 export function FeaturedCarousel({ products }: { products: any[] }) {
   const [index, setIndex] = useState(0)
@@ -18,8 +19,10 @@ export function FeaturedCarousel({ products }: { products: any[] }) {
   const prev = () => setIndex((i) => (i - 1 + products.length) % products.length)
   const next = () => setIndex((i) => (i + 1) % products.length)
 
+  const swipeHandlers = useSwipeable({ onSwipedLeft: next, onSwipedRight: prev, trackMouse: true })
+
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-luxe">
+    <div className="relative rounded-2xl overflow-hidden shadow-luxe" {...swipeHandlers}>
       <AnimatePresence mode="wait">
         {products.map((p, i) => i === index && (
           <motion.div key={p.id} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}>
