@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Arbuq Concept Project
 
 Bu proje, modern web teknolojileri kullanılarak geliştirilmiş bir full-stack uygulamadır.
@@ -76,3 +77,6 @@ npm run dev
 ## Lisans
 
 Bu proje MIT lisansı altında lisanslanmıştır.
+=======
+# ArbuqConcept
+>>>>>>> b71c7cf7ca8664e7694c313df3c0d657fdf8d114
