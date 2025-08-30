@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+  <rect width="1200" height="800" fill="#f3efe8"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#71572e" font-family="Arial" font-size="64">Unscented Pillar</text>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#8d6f3b" font-family="Arial" font-size="28">ArbuqConcept</text>
+  <rect x="60" y="60" width="1080" height="680" stroke="#d8c8a9" stroke-width="2" fill="none"/>
+</svg>
+
