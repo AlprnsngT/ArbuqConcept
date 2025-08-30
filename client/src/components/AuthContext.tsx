@@ -6,7 +6,7 @@ export type AuthUser = {
   name: string
   email?: string
 }
-
+//deneme
 type AuthContextType = {
   user: AuthUser | null
   signInWithEmail: (email: string, name?: string) => void
