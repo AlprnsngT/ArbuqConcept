@@ -1,7 +1,8 @@
 "use client"
 import { useMemo, useState } from 'react'
+import { Header, Footer } from '../../components/ui'
 import { FiltersSidebar } from '../../components/FiltersSidebar'
-import { ProductGrid } from '../../components/ProductGrid'
+import { ProductGrid } from '../../components/ui/ProductGrid'
 import { getAllProducts } from '../../data/products'
 
 export default function ProductsPage() {
@@ -24,12 +25,23 @@ export default function ProductsPage() {
   }, [all, filters])
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8">
-      <FiltersSidebar filters={filters} onChange={setFilters} />
-      <div className="space-y-6">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">All Products</h1>
-        <ProductGrid products={filtered} />
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <Header />
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8">
+          <FiltersSidebar filters={filters} onChange={setFilters} />
+          <div className="space-y-6">
+            <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Tüm Ürünler</h1>
+            <ProductGrid products={filtered} showViewAllButton={false} />
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

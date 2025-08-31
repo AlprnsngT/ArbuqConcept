@@ -21,7 +21,7 @@ export type Product = {
   reviewCount: number
 }
 
-// Mock data
+// Mock data - 10 kampanyalı ürün
 let products: Product[] = [
   {
     id: 'p1',
@@ -101,6 +101,58 @@ let products: Product[] = [
     avgRating: 4.1,
     reviewCount: 5,
   },
+  {
+    id: 'p7',
+    slug: 'vanilla-bean-14oz',
+    name: 'Vanilla Bean 14oz',
+    description: 'Rich and creamy vanilla with hints of caramel. Perfect for cozy evenings.',
+    price: 38,
+    stock: 15,
+    color: 'white',
+    scented: true,
+    images: ['/images/pillar-white.svg'],
+    avgRating: 4.7,
+    reviewCount: 32,
+  },
+  {
+    id: 'p8',
+    slug: 'lavender-fields-6oz',
+    name: 'Lavender Fields 6oz',
+    description: 'Soothing lavender with fresh herbs. Ideal for relaxation and meditation.',
+    price: 24,
+    stock: 20,
+    color: 'clear',
+    scented: true,
+    images: ['/images/linen-rose.svg'],
+    avgRating: 4.3,
+    reviewCount: 14,
+  },
+  {
+    id: 'p9',
+    slug: 'cinnamon-spice-20oz',
+    name: 'Cinnamon Spice 20oz',
+    description: 'Warm cinnamon with clove and nutmeg. Creates a festive atmosphere.',
+    price: 48,
+    stock: 8,
+    color: 'amber',
+    scented: true,
+    images: ['/images/smoked-oak.svg'],
+    avgRating: 4.9,
+    reviewCount: 28,
+  },
+  {
+    id: 'p10',
+    slug: 'ocean-breeze-9oz',
+    name: 'Ocean Breeze 9oz',
+    description: 'Fresh sea salt with citrus notes. Brings the ocean to your home.',
+    price: 32,
+    stock: 18,
+    color: 'clear',
+    scented: true,
+    images: ['/images/linen-rose.svg'],
+    avgRating: 4.4,
+    reviewCount: 16,
+  },
 ]
 
 let reviews: Review[] = [
@@ -115,6 +167,10 @@ export function getAllProducts(): Product[] {
 
 export function getFeaturedProducts(): Product[] {
   return products.slice(0, 6)
+}
+
+export function getCampaignProducts(): Product[] {
+  return products // Tüm 10 ürün kampanyalı
 }
 
 export function getProductBySlug(slug: string): Product {

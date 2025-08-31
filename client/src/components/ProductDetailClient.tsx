@@ -59,18 +59,11 @@ export function ProductDetailClient({ product }: { product: Product }) {
           <button className="btn btn-primary" onClick={() => addToCart(product, 1)}>Add to Cart</button>
           <a className="btn btn-outline" href="/cart">Go to Cart</a>
         </div>
-<<<<<<< HEAD
-        <div className="pt-8 border-t">
-          <div className="flex items-center justify-between flex-wrap gap-3">
-            <h2 className="text-xl font-medium">Reviews</h2>
-            <div className="flex items-center gap-2">
-=======
 
         <section className="pt-8 border-t space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <h2 className="text-xl font-medium">Reviews</h2>
             <div className="flex items-center gap-3">
->>>>>>> feature/frontend-luxury-seo
               <label className="text-sm">Filter:</label>
               <select value={ratingFilter} onChange={e=>setRatingFilter((e.target.value==='all'?'all':Number(e.target.value)) as any)} className="border rounded-md px-3 py-2 bg-white">
                 <option value="all">All</option>
@@ -80,11 +73,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
                 <option value={2}>2 stars</option>
                 <option value={1}>1 star</option>
               </select>
-<<<<<<< HEAD
-              <label className="text-sm ml-4">Sort:</label>
-=======
               <label className="text-sm">Sort:</label>
->>>>>>> feature/frontend-luxury-seo
               <select value={sort} onChange={e=>setSort(e.target.value as any)} className="border rounded-md px-3 py-2 bg-white">
                 <option value="newest">Newest</option>
                 <option value="highest">Highest rating</option>
@@ -92,26 +81,6 @@ export function ProductDetailClient({ product }: { product: Product }) {
               </select>
             </div>
           </div>
-<<<<<<< HEAD
-          <div className="mt-4 space-y-4">
-            {reviews.map(r => (
-              <div key={r.id} className="card p-4">
-                <div className="flex items-center justify-between">
-                  <RatingStars value={r.rating} />
-                  <span className="text-xs text-neutral-500">{new Date(r.createdAt).toLocaleDateString()}</span>
-                </div>
-                <p className="mt-2 text-neutral-800">{r.text}</p>
-              </div>
-            ))}
-            {reviews.length === 0 && (
-              <div className="text-sm text-neutral-600">No reviews found for the selected filters.</div>
-            )}
-          </div>
-          <div className="mt-6 card p-4">
-            <h3 className="font-medium mb-2">Add a review</h3>
-            {user ? (
-              <>
-=======
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card p-4">
@@ -147,29 +116,25 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
               <div className="mt-6 card p-4">
                 <h3 className="font-medium mb-2">Add a review</h3>
->>>>>>> feature/frontend-luxury-seo
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-sm">Rating:</span>
-                  <input aria-label="Rating" type="range" min={1} max={5} value={rating} onChange={e=>setRating(Number(e.target.value))} />
-                  <span>{rating}</span>
-                </div>
-                <textarea aria-label="Review text" value={text} onChange={e=>setText(e.target.value)} className="w-full border rounded-md p-3" rows={3} placeholder="Share your thoughts..." />
-                <div className="mt-3 flex justify-end">
-                  <button onClick={submitReview} className="btn btn-primary">Submit</button>
-                </div>
-<<<<<<< HEAD
-              </>
-            ) : (
-              <p className="text-sm text-neutral-700">Please <a className="underline" href="/sign-in">sign in</a> to leave a review.</p>
-            )}
-          </div>
-        </div>
-=======
+                {user ? (
+                  <>
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-sm">Rating:</span>
+                      <input aria-label="Rating" type="range" min={1} max={5} value={rating} onChange={e=>setRating(Number(e.target.value))} />
+                      <span>{rating}</span>
+                    </div>
+                    <textarea aria-label="Review text" value={text} onChange={e=>setText(e.target.value)} className="w-full border rounded-md p-3" rows={3} placeholder="Share your thoughts..." />
+                    <div className="mt-3 flex justify-end">
+                      <button onClick={submitReview} className="btn btn-primary">Submit</button>
+                    </div>
+                  </>
+                ) : (
+                  <p className="text-sm text-neutral-700">Please <a className="underline" href="/sign-in">sign in</a> to leave a review.</p>
+                )}
               </div>
             </div>
           </div>
         </section>
->>>>>>> feature/frontend-luxury-seo
       </div>
     </div>
   )
