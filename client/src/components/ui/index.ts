@@ -1,17 +1,9 @@
-// New UI Components
-export { Header } from './Header'
-export { CompanySlider } from './CompanySlider'
-export { ProductGrid } from './ProductGrid'
-export { Footer } from './Footer'
-export { BrandHeader } from './BrandHeader'
-export { CampaignSlider } from './CampaignSlider'
+// UI Components - Legacy support
+// Bu dosya artık sadece geriye dönük uyumluluk için kullanılıyor
+// Yeni componentler ilgili klasörlerde organize edildi
 
-// Legacy Components (for backward compatibility)
-export { FeaturedCarousel } from '../FeaturedCarousel'
-export { ProductCard } from '../ProductCard'
-export { ProductDetailClient } from '../ProductDetailClient'
-export { RatingStars } from '../RatingStars'
-export { FiltersSidebar } from '../FiltersSidebar'
-export { AuthProvider, useAuth } from '../AuthContext'
-export { CartProvider, useCart } from '../CartContext'
-export { Providers } from '../Providers'
+// Re-export from new structure
+export * from '../layout'
+export * from '../homepage'
+export * from '../products'
+export * from '../common'

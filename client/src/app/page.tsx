@@ -1,4 +1,4 @@
-import { Header, CompanySlider, ProductGrid, Footer } from '../components/ui'
+import { Header, CompanySlider, ProductGrid, Footer } from '../components'
 import { getCampaignProducts } from '../data/products'
 import type { Metadata } from 'next'
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const campaignProducts = getCampaignProducts()
-  
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}

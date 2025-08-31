@@ -1,8 +1,6 @@
 "use client"
 import { useMemo, useState } from 'react'
-import { Header, Footer } from '../../components/ui'
-import { FiltersSidebar } from '../../components/FiltersSidebar'
-import { ProductGrid } from '../../components/ui/ProductGrid'
+import { Header, Footer, ProductGrid, FiltersSidebar } from '../../components'
 import { getAllProducts } from '../../data/products'
 
 export default function ProductsPage() {

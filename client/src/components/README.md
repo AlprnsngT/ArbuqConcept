@@ -1,94 +1,75 @@
-# Components Structure
+# Components Directory Structure
 
-Bu klasör, ArbuqConcept uygulamasının tüm React bileşenlerini içerir.
+Bu dizin, uygulamanın tüm React bileşenlerini organize eder.
 
-## 📁 Klasör Yapısı
+## 📁 **Klasör Yapısı**
 
-```
-src/components/
-├── ui/                    # Yeni UI bileşenleri
-│   ├── Header.tsx        # Ana sayfa header'ı
-│   ├── CompanySlider.tsx # Şirket görselleri slider'ı
-│   ├── ProductGrid.tsx   # Ürün grid'i (yeni versiyon)
-│   ├── Footer.tsx        # Ana sayfa footer'ı (yeni versiyon)
-│   ├── CampaignSlider.tsx # Kampanya ürünleri slider'ı
-│   ├── BrandHeader.tsx   # Marka header'ı
-│   └── index.ts          # UI bileşenleri export'ları
-├── AuthContext.tsx       # Kimlik doğrulama context'i
-├── CartContext.tsx       # Sepet yönetimi context'i
-├── Providers.tsx         # Context provider'ları
-├── ProductCard.tsx       # Ürün kartı bileşeni
-├── ProductDetailClient.tsx # Ürün detay sayfası
-├── FeaturedCarousel.tsx  # Öne çıkan ürünler carousel'i
-├── RatingStars.tsx       # Yıldız rating bileşeni
-├── FiltersSidebar.tsx    # Filtreleme sidebar'ı
-└── index.ts              # Ana export dosyası
-```
+### **🏠 `/homepage` - Ana Sayfa Bileşenleri**
+- `CompanySlider.tsx` - Şirket görselleri için otomatik slider
+- `BrandHeader.tsx` - Marka adı ve logo bileşeni
+- `CampaignSlider.tsx` - Kampanya ürünleri için slider
 
-## 🎯 Bileşen Kategorileri
+### **🏗️ `/layout` - Sayfa Düzeni Bileşenleri**
+- `Header.tsx` - Üst navigasyon çubuğu (logo, arama, kullanıcı, sepet)
+- `Footer.tsx` - Alt bilgi çubuğu (iletişim, harita, sosyal medya)
 
-### 🆕 Yeni UI Bileşenleri (`/ui/`)
-Ana sayfa için özel olarak tasarlanmış modern bileşenler:
+### **🛍️ `/products` - Ürün Sayfası Bileşenleri**
+- `ProductGrid.tsx` - Ürün grid görünümü ve sıralama seçenekleri
+- `FiltersSidebar.tsx` - Ürün filtreleme yan paneli
+- `ProductDetailClient.tsx` - Ürün detay sayfası
 
-- **Header**: Logo, arama çubuğu, kullanıcı menüsü, sepet
-- **CompanySlider**: Şirket görselleri için otomatik slider
-- **ProductGrid**: Kampanyalı ürünler için grid düzeni
-- **Footer**: İletişim bilgileri ve Google Maps mock'u
-- **CampaignSlider**: Kampanya ürünleri için slider
-- **BrandHeader**: Marka tanıtımı için header
+### **🔧 `/common` - Ortak Bileşenler**
+- `ProductCard.tsx` - Tek ürün kartı bileşeni
+- `RatingStars.tsx` - Yıldız derecelendirme sistemi
+- `FeaturedCarousel.tsx` - Öne çıkan ürünler carousel'i
 
-### 🔧 Context ve Provider'lar
-Uygulama genelinde state yönetimi:
+### **📚 `/context` - Context Bileşenleri**
+- `AuthContext.tsx` - Kullanıcı kimlik doğrulama context'i
+- `CartContext.tsx` - Alışveriş sepeti context'i
+- `Providers.tsx` - Tüm context provider'ları birleştiren bileşen
 
-- **AuthContext**: Kullanıcı kimlik doğrulama
-- **CartContext**: Sepet yönetimi
-- **Providers**: Tüm context'leri birleştiren wrapper
+## 🚀 **Kullanım**
 
-### 📦 Legacy Bileşenler
-Eski sayfalar için kullanılan bileşenler:
-
-- **ProductCard**: Ürün kartı
-- **ProductDetailClient**: Ürün detay sayfası
-- **FeaturedCarousel**: Öne çıkan ürünler
-- **RatingStars**: Yıldız değerlendirme
-- **FiltersSidebar**: Filtreleme
-
-## 🚀 Kullanım
-
-### Import Örnekleri
+### **Import Örnekleri:**
 
 ```typescript
-// Yeni UI bileşenleri
-import { Header, CompanySlider, ProductGrid, Footer } from '../components/ui'
+// Ana dizinden import
+import { Header, Footer } from '../components'
 
-// Context'ler
-import { useAuth, useCart } from '../components'
-
-// Legacy bileşenler
-import { ProductCard, RatingStars } from '../components'
+// Belirli klasörden import
+import { Header } from '../components/layout'
+import { ProductGrid } from '../components/products'
+import { CompanySlider } from '../components/homepage'
 ```
 
-### Context Kullanımı
+### **Export Yapısı:**
 
 ```typescript
-// Auth context
-const { user, signInWithEmail, signOut } = useAuth()
-
-// Cart context
-const { items, addToCart, removeFromCart } = useCart()
+// src/components/index.ts
+export * from './layout'      // Header, Footer
+export * from './homepage'    // CompanySlider, BrandHeader, CampaignSlider
+export * from './products'    // ProductGrid, FiltersSidebar, ProductDetailClient
+export * from './common'      // ProductCard, RatingStars, FeaturedCarousel
 ```
 
-## 🔄 Güncellemeler
+## 🎯 **Avantajlar**
 
-- ✅ Eski `Navbar.tsx` silindi (Header ile değiştirildi)
-- ✅ Eski `Footer.tsx` silindi (yeni Footer ile değiştirildi)
-- ✅ Eski `ProductGrid.tsx` silindi (yeni ProductGrid ile değiştirildi)
-- ✅ Tüm import'lar temizlendi ve düzenlendi
-- ✅ Index dosyaları oluşturuldu
+- ✅ **Organize Yapı**: Her sayfa için ayrı klasör
+- ✅ **Kolay Bulma**: Component'ler mantıklı gruplarda
+- ✅ **Ölçeklenebilir**: Yeni sayfalar için kolay genişletme
+- ✅ **Import Basitliği**: Tek noktadan tüm component'lere erişim
+- ✅ **Kod Okunabilirliği**: Geliştirici deneyimi artırıldı
 
-## 📝 Notlar
+## 🔄 **Son Güncellemeler**
 
-- Yeni bileşenler modern tasarım ve animasyonlar içerir
-- Context'ler TypeScript ile tip güvenliği sağlar
-- Legacy bileşenler geriye uyumluluk için korunmuştur
-- Tüm bileşenler responsive tasarıma sahiptir
+- **Component mimarisi yeniden düzenlendi**
+- **Sayfa bazlı klasör yapısı oluşturuldu**
+- **Import/export sistemi optimize edildi**
+- **Geriye dönük uyumluluk korundu**
+
+## 📝 **Notlar**
+
+- Tüm component'ler `src/components/index.ts` üzerinden export edilir
+- Eski `ui/` klasörü geriye dönük uyumluluk için korunur
+- Yeni component'ler ilgili klasörlere eklenmelidir
+- Her klasör kendi `index.ts` dosyasına sahiptir
